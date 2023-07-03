@@ -1,5 +1,4 @@
 # Etch-a-Sketch
-# My First Game: <br />Rock Paper Scissors
 
 ## Table of Contents
 * [General Info](#general-information)
