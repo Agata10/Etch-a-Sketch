@@ -39,8 +39,14 @@ footer {
 
 .sketch-screen {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     width: 600px;
     height: 600px;
     background-color: #bfbfbf;
 } 
 
+.sketch-screen > div {
+    height: auto;
+    flex: 1 0 auto;
+}
