@@ -6,12 +6,20 @@ function makeGrids(size) {
         for(let j = 1; j<= size; j++){
         let row = document.createElement("div");
         row.classList.add("row");
-        row.style.border = "2px solid black";
-        row.innerText = (i * size) + j;
         column.appendChild(row);
         }
         screen.appendChild(column);
-    }
+    }    
 }
 
-makeGrids(16);
+function hoverGrid() {
+    let square = document.querySelectorAll(".row");
+    square.forEach(cell => cell.addEventListener("mouseenter", () => changeColor(cell)));
+}
+
+function changeColor(cell){
+    cell.style.backgroundColor = "black";
+}
+makeGrids(32);
+hoverGrid();
+
