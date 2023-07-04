@@ -17,9 +17,28 @@ function hoverGrid() {
     square.forEach(cell => cell.addEventListener("mouseenter", () => changeColor(cell)));
 }
 
-function changeColor(cell){
+function eraseGrid() {
+    let square = document.querySelectorAll(".row");
+    square.forEach(cell => cell.addEventListener("mouseover", () => {
+        cell.style.backgroundColor = "#bfbfbf";
+    }));
+}
+
+function changeColor(cell) {
     cell.style.backgroundColor = "black";
 }
-makeGrids(32);
+
+function Draw() {
+    let size = prompt("Please enter a number from 1 to 100:");
+    if(size <=  0 || size > 100 || size === " "){
+        alert("Invalid value, try again");
+        size = prompt("Please enter a number from 1 to 100:");
+    }
+    makeGrids(size);
+}
+makeGrids(16);
+//Draw();
 hoverGrid();
+//eraseGrid();
+
 

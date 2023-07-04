@@ -8,7 +8,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100%;
 }
 
 footer {
@@ -18,7 +17,6 @@ footer {
     margin-top: auto;
     background-color: #555454;
     padding: 12px;
-    margin-top: 16px;
 }
 
 .container {
@@ -30,17 +28,18 @@ footer {
 
 .sketch-container {
     display: flex;
-    justify-content: center;
-    width: 800px;
-    height: 800px;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: #991101;
-    padding-top: 50px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 20px 6px black;
+    padding-top: 70px;
+    margin-bottom: 20px;
 }
 
 .sketch-screen {
     display: flex;
-    width: 600px;
-    height: 600px;
+    margin: 0 auto;
     background-color: #bfbfbf;
 } 
 
@@ -57,3 +56,66 @@ footer {
     border: 1px solid rgb(153, 152, 152);
 }
 
+.round-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    padding: 0 20px;  
+}
+
+.eraser, 
+.reset {
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px #000000;
+}
+
+@media only screen and (min-width: 768px) {
+    .sketch-container {
+      width: 750px;
+      height: 700px;
+    }
+    .sketch-screen {
+        width: 590px;
+        height: 550px;
+    }
+
+    .eraser, 
+    .reset {
+    height: 80px;
+    width: 80px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .sketch-container {
+      width: 550px;
+      height: 550px;
+    }
+    .sketch-screen {
+        width: 400px;
+        height: 400px;
+    }
+    .eraser, 
+    .reset {
+    height: 50px;
+    width: 50px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .sketch-container {
+      width: 350px;
+      height: 350px;
+    }
+    .sketch-screen {
+        width: 300px;
+        height: 300px;
+    }
+    .eraser, 
+    .reset {
+    height: 50px;
+    width: 50px;
+    }
+  }
+
+  
