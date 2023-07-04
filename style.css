@@ -63,10 +63,11 @@ footer {
     padding: 0 20px;  
 }
 
-.eraser, 
-.reset {
+#eraser, 
+#reset {
     border-radius: 50%;
     box-shadow: 5px 5px 10px #000000;
+    color: #838282
 }
 
 @media only screen and (min-width: 768px) {
@@ -79,8 +80,8 @@ footer {
         height: 550px;
     }
 
-    .eraser, 
-    .reset {
+    #eraser, 
+    #reset {
     height: 80px;
     width: 80px;
     }
@@ -95,8 +96,8 @@ footer {
         width: 400px;
         height: 400px;
     }
-    .eraser, 
-    .reset {
+    #eraser, 
+    #reset {
     height: 50px;
     width: 50px;
     }
@@ -111,8 +112,8 @@ footer {
         width: 300px;
         height: 300px;
     }
-    .eraser, 
-    .reset {
+    #eraser, 
+    #reset {
     height: 50px;
     width: 50px;
     }
