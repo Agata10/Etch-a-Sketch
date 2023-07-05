@@ -27,14 +27,12 @@ function changeColor(cell, color) {
 }
 
 function Draw() {
-    let size = prompt("Please enter a number from 1 to 100:");
+    let input = document.querySelector("#grid-size");
+    input.addEventListener("input", (event) => {
+        makeGrids(`${input}`);
+    });
 
-    if(size <=  0 || size > 100 || size === " "){
-        alert("Invalid value, try again");
-        size = prompt("Please enter a number from 1 to 100:");
-    }
-
-    makeGrids(size);
+   
     hoverGrid();
 
     let buttons = document.querySelector(".round-buttons");
