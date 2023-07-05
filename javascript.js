@@ -41,6 +41,7 @@ function Draw() {
     let eraser = buttons.querySelector("#eraser");
     eraser.addEventListener("click", () => {
         eraseGrid();
+        eraser.style.backgroundColor = "white";
     });
    
 

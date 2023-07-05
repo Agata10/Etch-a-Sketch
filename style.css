@@ -34,6 +34,7 @@ footer {
     border-radius: 12px;
     box-shadow: 5px 5px 20px 6px black;
     padding-top: 70px;
+    padding-bottom: 50px;
     margin-bottom: 20px;
 }
 
@@ -58,6 +59,7 @@ footer {
 
 .round-buttons {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between; 
     padding: 0 20px;  
@@ -67,14 +69,70 @@ footer {
 #reset {
     border-radius: 50%;
     box-shadow: 5px 5px 10px #000000;
-    color: #838282
+    color: #838282;
+    background-color: #bfbfbf;
 }
+
+#eraser:hover, 
+#reset:hover {
+    background-color: white;
+}
+
+.option-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+}
+input, label {
+    display:block;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="range"] {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+    /* creating a custom design */
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    /*  slider progress trick  */
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+    /* creating a custom design */
+    height: 15px;
+    width: 15px;
+    background-color: grey;
+    border-radius: 50%;
+    border: 1px solid #bfbfbf;
+    /*  slider progress trick  */
+    box-shadow: -407px 0 0 400px #bfbfbf;
+  }
+
+  #color,
+  #rainbow {
+    box-shadow: 3px 3px 10px #a1a0a0;
+    background-color: #bdbbbb;
+    font-size: 12px;
+    height: 40px;
+    width: 80px;
+  }
 
 @media only screen and (min-width: 768px) {
     .sketch-container {
       width: 750px;
       height: 700px;
     }
+
     .sketch-screen {
         width: 590px;
         height: 550px;
@@ -85,12 +143,13 @@ footer {
     height: 80px;
     width: 80px;
     }
-  }
+ }
 
   @media only screen and (max-width: 600px) {
     .sketch-container {
       width: 550px;
       height: 550px;
+      padding-bottom: 0px;
     }
     .sketch-screen {
         width: 400px;
