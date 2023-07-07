@@ -19,7 +19,7 @@ Project is one of the task from [The Odin Project](https://www.theodinproject.co
 
 ## Screenshots
 ![Wepage](/images/photo1.png)
-![Wepage2](/images/photo2.png)
+![Wepage2](/images/photo.png)
 ![Webpage3](/images/photo3.png)
 
 
