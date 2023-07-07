@@ -10,6 +10,10 @@ body {
     height: 100vh;
 }
 
+body * {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -33,15 +37,26 @@ footer {
     background-color: #991101;
     border-radius: 12px;
     box-shadow: 5px 5px 20px 6px black;
-    padding-top: 70px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 0px;
     margin-bottom: 20px;
+}
+
+.sketch-container h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #838282;
+  font-size: 36px;
+  text-shadow:  5px 5px 10px#000000;
+  margin-bottom: 10px;
 }
 
 .sketch-screen {
     display: flex;
     margin: 0 auto;
     background-color: #bfbfbf;
+    width: 100%;
 } 
 
 /*columns*/
@@ -59,8 +74,6 @@ footer {
 
 .round-buttons {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     justify-content: space-between; 
     padding: 0 20px;  
 }
@@ -85,13 +98,18 @@ footer {
     margin: 0 auto;
 }
 
-.size input,.size label {
+.size input,
+.size label {
     display:block;
     text-align: center;
-    width: 100%;
     margin-top: 5px;
     color: #838282;
     text-shadow:  5px 5px 10px#000000;
+}
+
+.size label {
+  font-size: 16px;
+  width: 100%;
 }
 
 input[type="range"] {
@@ -139,7 +157,6 @@ input[type="range"] {
     height: 40px;
     width: 80px;
     color: #838282;
-
   }
 
   #color {
@@ -175,7 +192,7 @@ input[type="range"] {
 @media only screen and (min-width: 768px) {
     .sketch-container {
       width: 750px;
-      height: 700px;
+      height: 750px;
     }
 
     .sketch-screen {
@@ -185,15 +202,19 @@ input[type="range"] {
 
     #eraser, 
     #reset {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
+    }
+
+    .size input {
+      height: 15px;
     }
  }
 
   @media only screen and (max-width: 600px) {
     .sketch-container {
       width: 550px;
-      height: 550px;
+      height: 600px;
       padding-bottom: 0px;
     }
     .sketch-screen {
@@ -205,22 +226,67 @@ input[type="range"] {
     height: 50px;
     width: 50px;
     }
+
+    #color,
+    #rainbow {
+      height: 30px;
+      width: 40p;
+    }
+
+    .option-buttons {
+      width: 90%;
+      height: 60px;
+  }
+
+    .round-buttons{
+      width: 90%;
+    }
+  
+    .size input {
+      width: 200px;
+      height: 15px;
+    }
+
+    .size label {
+    font-size: 14px;
+    }
+
   }
 
   @media only screen and (max-width: 400px) {
     .sketch-container {
       width: 350px;
-      height: 350px;
+      height: 450px;
     }
+
     .sketch-screen {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
+    }
+
+    .round-buttons{
+      width: 90%;
     }
     #eraser, 
     #reset {
     height: 50px;
     width: 50px;
     }
+
+    .option-buttons {
+      width: 90%;
+      height: 60px;
+    }
+
+    .size input {
+      width: 130px;
+      height: 10px;
+    }
+
+    .size label {
+    font-size: 10px;
+    }
+
   }
 
   
