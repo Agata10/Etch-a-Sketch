@@ -15,7 +15,10 @@
                 <button id="reset">RESET</button>
             </div>
             <div class="option-buttons">
-                <button id="color">COLOR</button>
+                <div id="color">
+                    <label id="color-label" for="color-input">COLOR</label>
+                    <input id="color-input" type="color" name="pick-color">
+                </div>
                 <div class="size">
                      <label for="grid-size">PICK THE SIZE OF BOARD:</label>
                      <input type="range" id="grid-size" name="grid-size" min="0" max="100" step="1" value="50">

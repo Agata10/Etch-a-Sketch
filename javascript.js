@@ -1,35 +1,5 @@
-    let inputValue = document.getElementById("grid-size");
-    let bubble = document.querySelector(".bubble");
-    console.log(inputValue.value);
-    
-
-   
-    makeGrids(inputValue.value);
-
-    inputValue.addEventListener("change", () => {
-        setBubble(inputValue, bubble);  
-        changeGrid();   
-    });
-           
-        hoverGrid();
-        erase(); 
-        reset();
-
-
-function changeGrid() {
-    let column = document.querySelectorAll(".column");
-    let row = document.querySelectorAll(".row");
-    column.forEach((col) => {
-        return col.remove();
-    });
-    row.forEach((r) => {
-        return r.remove();
-    });
-    makeGrids(inputValue.value);
-    hoverGrid();
-    erase(); 
-    reset();
-}
+let inputValue = document.getElementById("grid-size");
+let newColor = document.querySelector("#color-input");
 
 function makeGrids(size) {
 
@@ -45,11 +15,28 @@ function makeGrids(size) {
         }
         screen.appendChild(column);
     }   
+
+    hoverGrid(newColor.value);
 }
 
-function hoverGrid() {
+function changeGrid() {
+    let column = document.querySelectorAll(".column");
+    let row = document.querySelectorAll(".row");
+
+    column.forEach((col) => {
+        return col.remove();
+    });
+    row.forEach((r) => {
+        return r.remove();
+    });
+
+    makeGrids(inputValue.value);
+    
+}
+
+function hoverGrid(color) {
     let square = document.querySelectorAll(".row");
-    square.forEach(cell => cell.addEventListener("mouseover", () => changeColor(cell, "black")));
+    square.forEach(cell => cell.addEventListener("mouseenter", () => changeColor(cell, color)));
 }
 
 function eraseGrid() {
@@ -61,11 +48,10 @@ function changeColor(cell, color) {
     cell.style.backgroundColor = `${color}`;
 }
 
-
 function reset() {
     let reset = document.getElementById("reset");
     reset.addEventListener("click", () => {
-        location.reload();
+        window.location.reload();
     })
 }
 
@@ -88,8 +74,36 @@ function setBubble(range, bubble) {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.2}px))`;
 }  
 
-  
+function generateRandomRGB() {
+    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0, 255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const rgb = `rgb(${r},${g},${b})`;
 
+    hoverGrid(rgb);
+}
+
+function draw() {
+    
+    
+    let bubble = document.querySelector(".bubble");
+    
+    makeGrids(inputValue.value);
+
+    inputValue.addEventListener("change", () => {
+        setBubble(inputValue, bubble);  
+        changeGrid();   
+    });
+    
+    newColor.addEventListener("input", () => {
+        hoverGrid(newColor.value);  
+    });
+    erase(); 
+    reset();
+   }
+  
+   draw();
 
 
 
