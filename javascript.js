@@ -15,19 +15,20 @@ function makeGrids(size) {
         }
         screen.appendChild(column);
     }   
-
+    
     hoverGrid(newColor.value);
 }
 
-function changeGrid() {
-    let square = document.querySelectorAll(".row");
+    function changeGrid() {
     let column = document.querySelectorAll(".column");
+    let row = document.querySelectorAll(".row");
+
 
     column.forEach((col) => {
         return col.remove();
     });
-    square.forEach((row) => {
-        return row.remove();
+    row.forEach((r) => {
+        return r.remove();
     });
 
     makeGrids(inputValue.value);
@@ -39,10 +40,6 @@ function hoverGrid(color) {
     square.forEach(cell => cell.addEventListener("mouseover", () => changeColor(cell, color)));
 }
 
-function eraseGrid() {
-    let square = document.querySelectorAll(".row");
-    square.forEach(cell => cell.addEventListener("mouseenter", () => changeColor(cell, "#bfbfbf")));
-}
 
 function changeColor(cell, color) {
     cell.style.backgroundColor = `${color}`;
@@ -59,7 +56,7 @@ function erase() {
     let buttons = document.querySelector(".round-buttons");
     let eraser = buttons.querySelector("#eraser");
     eraser.addEventListener("click", () => {
-    eraseGrid();
+    hoverGrid("#bfbfbf");
     eraser.style.backgroundColor = "white";
     });
  }
@@ -85,11 +82,13 @@ function generateRandomRGB() {
 }
 
 function draw() {
+
     let bubble = document.querySelector(".bubble");
     let rainbowColor = document.querySelector("#rainbow");
     
     
     makeGrids(inputValue.value);
+    
 
     inputValue.addEventListener("change", () => {
         setBubble(inputValue, bubble);  
