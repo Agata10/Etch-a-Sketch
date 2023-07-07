@@ -1,4 +1,4 @@
-let inputValue = document.getElementById("grid-size");
+const inputValue = document.getElementById("grid-size");
 let newColor = document.querySelector("#color-input");
 
 function makeGrids(size) {
@@ -20,14 +20,14 @@ function makeGrids(size) {
 }
 
 function changeGrid() {
+    let square = document.querySelectorAll(".row");
     let column = document.querySelectorAll(".column");
-    let row = document.querySelectorAll(".row");
 
     column.forEach((col) => {
         return col.remove();
     });
-    row.forEach((r) => {
-        return r.remove();
+    square.forEach((row) => {
+        return row.remove();
     });
 
     makeGrids(inputValue.value);
@@ -36,7 +36,7 @@ function changeGrid() {
 
 function hoverGrid(color) {
     let square = document.querySelectorAll(".row");
-    square.forEach(cell => cell.addEventListener("mouseenter", () => changeColor(cell, color)));
+    square.forEach(cell => cell.addEventListener("mouseover", () => changeColor(cell, color)));
 }
 
 function eraseGrid() {
@@ -75,19 +75,19 @@ function setBubble(range, bubble) {
 }  
 
 function generateRandomRGB() {
+
     const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
     const r = randomBetween(0, 255);
     const g = randomBetween(0, 255);
     const b = randomBetween(0, 255);
-    const rgb = `rgb(${r},${g},${b})`;
-
-    hoverGrid(rgb);
+    const rgb = `rgb(${r},${g},${b})`; 
+    return rgb;
 }
 
 function draw() {
-    
-    
     let bubble = document.querySelector(".bubble");
+    let rainbowColor = document.querySelector("#rainbow");
+    
     
     makeGrids(inputValue.value);
 
@@ -99,11 +99,24 @@ function draw() {
     newColor.addEventListener("input", () => {
         hoverGrid(newColor.value);  
     });
+
+    rainbowColor.addEventListener("click", () => {
+        let square = document.querySelectorAll(".row");
+        let colorRGB;
+        square.forEach(cell => cell.addEventListener("mouseover", () => {
+        colorRGB = generateRandomRGB();
+        changeColor(cell, colorRGB);
+         }));
+    
+    });
+
     erase(); 
     reset();
    }
   
    draw();
+
+
 
 
 
