@@ -26,27 +26,45 @@ function changeColor(cell, color) {
     cell.style.backgroundColor = `${color}`;
 }
 
-function Draw() {
-    let input = document.querySelector("#grid-size");
-    input.addEventListener("input", (event) => {
-        makeGrids(`${input}`);
+function draw() {
+
+    let inputValue = document.getElementById("grid-size");
+    let bubble = document.querySelector(".bubble");
+    console.log(inputValue.value);
+
+    inputValue.addEventListener("input", () => {
+        setBubble(inputValue, bubble);
+
     });
+    
+    
 
-   
-    hoverGrid();
+    inputValue.addEventListener("change", () => {
 
-    let buttons = document.querySelector(".round-buttons");
-    let eraser = buttons.querySelector("#eraser");
-    eraser.addEventListener("click", () => {
-        eraseGrid();
-        eraser.style.backgroundColor = "white";
+        makeGrids(inputValue.value);    
+        hoverGrid();
+    
+        let buttons = document.querySelector(".round-buttons");
+        let eraser = buttons.querySelector("#eraser");
+        eraser.addEventListener("click", () => {
+            eraseGrid();
+            eraser.style.backgroundColor = "white";
+        });
     });
-   
-
 }
+    
+function setBubble(range, bubble) {
+    const val = range.value;
+    const min = range.min ? range.min : 0;
+    const max = range.max ? range.max : 100;
+    const newVal = Number(((val - min) * 100) / (max - min));
+    bubble.innerHTML = val;
+    
+    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.2}px))`;
+}  
 
+draw();
 
-Draw();
 
 
 

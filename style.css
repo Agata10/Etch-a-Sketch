@@ -84,11 +84,14 @@ footer {
     gap: 40px;
     margin: 0 auto;
 }
+
 input, label {
     display:block;
     text-align: center;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
+    color: #838282;
+    text-shadow:  5px 5px 10px#000000;
 }
 
 input[type="range"] {
@@ -118,13 +121,30 @@ input[type="range"] {
     box-shadow: -407px 0 0 400px #bfbfbf;
   }
 
+  .bubble {
+    background: grey;
+    color: white;
+    padding: 4px 8px;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px #100f0f;
+    left: 50%;
+    margin-top: 5px;
+  }
+
   #color,
   #rainbow {
-    box-shadow: 3px 3px 10px #a1a0a0;
-    background-color: #bdbbbb;
+    box-shadow: 3px 3px 10px #100f0f;
+    background-color: #bfbfbf;
     font-size: 12px;
     height: 40px;
     width: 80px;
+    color: #838282;
+  }
+
+  #color:hover, 
+  #rainbow:hover {
+    background-color: white;
   }
 
 @media only screen and (min-width: 768px) {
