@@ -18,11 +18,13 @@ Project is one of the task from [The Odin Project](https://www.theodinproject.co
 * JavaScript
 
 ## Screenshots
-![Wepage]()
-![Wepage When Won]()
+![Wepage](/images/photo1.png)
+![Wepage2](/images/photo2.png)
+![Webpage3](/images/photo3.png)
+
 
 ## Link to game
-
+https://agata10.github.io/Etch-a-Sketch/
 
 ## Setup
 
@@ -32,5 +34,7 @@ or
    `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`
 
 ## Usage
+
+This project helped me understand more JavaScript. It's based on Etch-a-Sketch board as the name says by itself. There are more options for the user. When user get over with a mouse on sketch board it will draw with black ink unless the user press COLOR button(it gives variety of rgb colors) to pick color or press RAINBOW button(for each cell it will generate different color). If user wants to start over, he can simply press RESET button. There is range from 1 to 100 for grid size. App has also function of earasing the unwanted drawing.
 
 
