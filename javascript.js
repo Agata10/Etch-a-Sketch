@@ -1,5 +1,40 @@
+    let inputValue = document.getElementById("grid-size");
+    let bubble = document.querySelector(".bubble");
+    console.log(inputValue.value);
+    
+
+   
+    makeGrids(inputValue.value);
+
+    inputValue.addEventListener("change", () => {
+        setBubble(inputValue, bubble);  
+        changeGrid();   
+    });
+           
+        hoverGrid();
+        erase(); 
+        reset();
+
+
+function changeGrid() {
+    let column = document.querySelectorAll(".column");
+    let row = document.querySelectorAll(".row");
+    column.forEach((col) => {
+        return col.remove();
+    });
+    row.forEach((r) => {
+        return r.remove();
+    });
+    makeGrids(inputValue.value);
+    hoverGrid();
+    erase(); 
+    reset();
+}
+
 function makeGrids(size) {
+
     let screen = document.querySelector(".sketch-screen");
+
     for(let i = 0; i < size; i++){
         let column = document.createElement("div");
         column.classList.add("column");
@@ -26,33 +61,23 @@ function changeColor(cell, color) {
     cell.style.backgroundColor = `${color}`;
 }
 
-function draw() {
 
-    let inputValue = document.getElementById("grid-size");
-    let bubble = document.querySelector(".bubble");
-    console.log(inputValue.value);
-
-    inputValue.addEventListener("input", () => {
-        setBubble(inputValue, bubble);
-
-    });
-    
-    
-
-    inputValue.addEventListener("change", () => {
-
-        makeGrids(inputValue.value);    
-        hoverGrid();
-    
-        let buttons = document.querySelector(".round-buttons");
-        let eraser = buttons.querySelector("#eraser");
-        eraser.addEventListener("click", () => {
-            eraseGrid();
-            eraser.style.backgroundColor = "white";
-        });
-    });
+function reset() {
+    let reset = document.getElementById("reset");
+    reset.addEventListener("click", () => {
+        location.reload();
+    })
 }
-    
+
+function erase() {
+    let buttons = document.querySelector(".round-buttons");
+    let eraser = buttons.querySelector("#eraser");
+    eraser.addEventListener("click", () => {
+    eraseGrid();
+    eraser.style.backgroundColor = "white";
+    });
+ }
+
 function setBubble(range, bubble) {
     const val = range.value;
     const min = range.min ? range.min : 0;
@@ -63,7 +88,9 @@ function setBubble(range, bubble) {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.2}px))`;
 }  
 
-draw();
+  
+
+
 
 
 
