@@ -69,9 +69,11 @@ function erase() {
         } else if(ifclickEraser === true) {
             if (ifRainbowColor === true) {
                 square.forEach(cell => cell.addEventListener("mouseover", () => {
-                currentColor = generateRandomRGB();   
-                changeColor(cell, currentColor);  
+                colorRGB = generateRandomRGB();   
+                changeColor(cell, colorRGB);  
                 }));
+              } else if(ifNewColorClicked === true){
+                hoverGrid(currentColor);
               } else {
                 hoverGrid(currentColor);
               }
@@ -118,11 +120,14 @@ function draw() {
         hoverGrid(newColor.value);  
         currentColor = newColor.value;
         ifNewColorClicked = true;
+        if(ifRainbowColor === true){
+        ifRainbowColor = false;
+        }
         if(ifNewColorClicked === true && ifclickEraser === true) {
             eraser.style.backgroundColor = "#bfbfbf";
             ifclickEraser = false;
-            ifRainbowColor = false;
         }
+        
     });
 
     rainbowColor.addEventListener("click", () => {
@@ -132,7 +137,6 @@ function draw() {
         square.forEach(cell => cell.addEventListener("mouseover", () => {
             colorRGB = generateRandomRGB();
             changeColor(cell, colorRGB);
-            currentColor = generateRandomRGB();    
          }));
 
          if(ifRainbowColor === true && ifclickEraser === true) {
@@ -141,7 +145,7 @@ function draw() {
         ifclickEraser = false;
        
     });
-    erase(currentColor); 
+    erase(); 
     reset();
    }
   
