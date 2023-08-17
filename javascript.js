@@ -1,5 +1,10 @@
 const inputValue = document.getElementById("grid-size");
 let newColor = document.querySelector("#color-input");
+let eraser = document.querySelector("#eraser");
+let currentColor = newColor.value;
+let ifRainbowColor = false;
+let ifclickEraser = false;
+let ifNewColorClicked = false;
 
 function makeGrids(size) {
     let screen = document.querySelector(".sketch-screen");
@@ -52,11 +57,31 @@ function reset() {
 function erase() {
     let buttons = document.querySelector(".round-buttons");
     let eraser = buttons.querySelector("#eraser");
+    let square = document.querySelectorAll(".row");
+   
     eraser.addEventListener("click", () => {
-        hoverGrid("#bfbfbf");
-        eraser.style.backgroundColor = "white";
-    });
+        
+        if (ifclickEraser === false) {
+            hoverGrid("#bfbfbf");
+            eraser.style.backgroundColor = "white";
+            ifclickEraser = true;
+    
+        } else if(ifclickEraser === true) {
+            if (ifRainbowColor === true) {
+                square.forEach(cell => cell.addEventListener("mouseover", () => {
+                currentColor = generateRandomRGB();   
+                changeColor(cell, currentColor);  
+                }));
+              } else {
+                hoverGrid(currentColor);
+              }
+            
+            ifclickEraser = false;
+            eraser.style.backgroundColor = "#bfbfbf"; 
+        }
+   });
  }
+
 
 function setBubble(range, bubble) {
     const val = range.value;
@@ -91,18 +116,32 @@ function draw() {
     
     newColor.addEventListener("input", () => {
         hoverGrid(newColor.value);  
+        currentColor = newColor.value;
+        ifNewColorClicked = true;
+        if(ifNewColorClicked === true && ifclickEraser === true) {
+            eraser.style.backgroundColor = "#bfbfbf";
+            ifclickEraser = false;
+            ifRainbowColor = false;
+        }
     });
 
     rainbowColor.addEventListener("click", () => {
         let square = document.querySelectorAll(".row");
         let colorRGB;
+        ifRainbowColor = true;
         square.forEach(cell => cell.addEventListener("mouseover", () => {
             colorRGB = generateRandomRGB();
             changeColor(cell, colorRGB);
+            currentColor = generateRandomRGB();    
          }));
-    
+
+         if(ifRainbowColor === true && ifclickEraser === true) {
+            eraser.style.backgroundColor = "#bfbfbf";  
+        }
+        ifclickEraser = false;
+       
     });
-    erase(); 
+    erase(currentColor); 
     reset();
    }
   

@@ -85,8 +85,7 @@ footer {
     color: #838282;
     background-color: #bfbfbf;
 }
-
-#eraser:hover, 
+ 
 #reset:hover {
     background-color: white;
 }
